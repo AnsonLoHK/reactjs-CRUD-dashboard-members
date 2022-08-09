@@ -20,4 +20,5 @@ You may also see any lint errors in the console.
 
 2.已經將 blogs 的 get 跟 post 都整合在 api.js 裡面
 
-3.
+3.update 跟 read 還沒做
+freecodecamp.org/news/how-to-perform-crud-operations-using-react/
