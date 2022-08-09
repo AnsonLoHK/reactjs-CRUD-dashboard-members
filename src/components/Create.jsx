@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import axios from "axios";
-import { apiArticleMsg, apiArticleItem } from "../api";
+import { apiArticleMsg, apiArticleItem, apiFakeData } from "../api";
 
 const Create = () => {
   const [firstName, setFirstName] = useState("");
@@ -9,21 +9,39 @@ const Create = () => {
   const [checkbox, setCheckbox] = useState(false);
   const [items, setItems] = useState([]);
   const [msgitems, setMsgitems] = useState({});
+  const [fakeDates, setFakeDates] = useState({});
 
-  //after click button excute this function
+  // 用途 fakeData
   async function postData() {
+    let fakeData = {
+      firstName,
+      lastName,
+      checkbox,
+    };
+
+    try {
+      // post
+      const { data: fake } = await apiFakeData(fakeData);
+      setFakeDates(fake);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  //多個api集中管理 用途 blogs
+  async function apiTest() {
     let articleMsg = {
-      title: "測試0809",
+      title: "配飲料",
       content: "測試",
     };
 
     try {
-      // get
-      const { data: items } = await apiArticleItem();
       // post
       const { data: msg } = await apiArticleMsg(articleMsg);
-      setItems(items);
       setMsgitems(msg);
+      // get
+      const { data: items } = await apiArticleItem();
+      setItems(items);
     } catch (err) {
       console.error(err);
     }
@@ -55,13 +73,21 @@ const Create = () => {
         <Button onClick={postData} type="submit">
           Submit
         </Button>
-      </Form>
-      {items.map((res) => (
-        <div>{res.createdAt}</div>
-      ))}
-      <hr />
 
-      <span>post回傳:{JSON.stringify(msgitems)}</span>
+        <Button onClick={apiTest} type="submit">
+          apiTest
+        </Button>
+      </Form>
+      <div>
+        BLOGS GET:
+        {items.map((res, index) => (
+          <div key={index}>{res.title}</div>
+        ))}
+      </div>
+      <hr />
+      <span>BLOGS POST回傳:{JSON.stringify(msgitems)}</span>
+      <hr />
+      <div>fakeData post回傳:{JSON.stringify(fakeDates)}</div>
     </>
   );
 };
