@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
+import axios from "axios";
 
 const Create = () => {
   const [firstName, setFirstName] = useState("");
@@ -11,6 +12,29 @@ const Create = () => {
     console.log(lastName);
     console.log(checkbox);
   };
+
+  //GET
+  axios
+    .get("https://62f1f364b1098f150807dadd.mockapi.io/blogs")
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  //POST
+  // axios
+  //   .post("http://api/user", {
+  //     firstName: "Fred",
+  //     lastName: "Flintstone",
+  //   })
+  //   .then((res) => {
+  //     console.log(res);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+
   return (
     <Form className="create-form">
       <Form.Field>
