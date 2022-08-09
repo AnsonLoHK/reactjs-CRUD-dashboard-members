@@ -8,4 +8,3 @@ const articleRequest = axios.create({
 // 文章相關的 api
 export const apiArticleItem = () => articleRequest.get("/blogs");
 export const apiArticleMsg = (data) => articleRequest.post("/blogs", data);
-export const apiArticleLink = (data) => articleRequest.post("/blogs", data);
