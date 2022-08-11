@@ -33,6 +33,7 @@ export const apiArticleMsg = (data) => articleRequest.post("/blogs", data);
 // POST
 export const apiFakeData = (data) => customAxios.post("/fakeData", data);
 // GET
+export const getApiFakeData = () => customAxios.get("/fakeData");
 
 // PUT
 

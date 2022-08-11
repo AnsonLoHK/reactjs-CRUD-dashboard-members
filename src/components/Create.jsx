@@ -3,9 +3,10 @@ import { Button, Checkbox, Form } from "semantic-ui-react";
 import { apiArticleMsg, apiArticleItem, apiFakeData } from "../api";
 
 const Create = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [checkbox, setCheckbox] = useState(false);
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+
   const [items, setItems] = useState([]);
   const [msgitems, setMsgitems] = useState({});
   const [fakeDates, setFakeDates] = useState({});
@@ -13,9 +14,9 @@ const Create = () => {
   // 用途 fakeData
   async function postData() {
     let fakeData = {
-      firstName,
-      lastName,
-      checkbox,
+      name,
+      password,
+      role,
     };
 
     try {
@@ -26,6 +27,8 @@ const Create = () => {
       console.error(err);
     }
   }
+
+  console.log("fakeDates", fakeDates);
 
   //多個api集中管理 用途 blogs
   async function apiTest() {
@@ -50,25 +53,27 @@ const Create = () => {
     <>
       <Form className="create-form">
         <Form.Field>
-          <label>First Name</label>
+          <label>Name</label>
           <input
-            placeholder="First Name"
-            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="遊戲名稱"
+            onChange={(e) => setName(e.target.value)}
           />
         </Form.Field>
         <Form.Field>
-          <label>Last Name</label>
+          <label>Password</label>
           <input
-            placeholder="Last Name"
-            onChange={(e) => setLastName(e.target.value)}
+            placeholder="請輸入密碼"
+            onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Field>
         <Form.Field>
-          <Checkbox
-            label="I agree to the Terms and Conditions"
-            onChange={(e) => setCheckbox(!checkbox)}
+          <label>權限</label>
+          <input
+            placeholder="請輸入權限"
+            onChange={(e) => setRole(e.target.value)}
           />
         </Form.Field>
+
         <Button onClick={postData} type="submit">
           Submit
         </Button>
@@ -77,14 +82,14 @@ const Create = () => {
           apiTest
         </Button>
       </Form>
-      <div>
+      {/* <div>
         BLOGS GET:
         {items.map((res, index) => (
           <div key={index}>{res.title}</div>
         ))}
-      </div>
+      </div> */}
       <hr />
-      <span>BLOGS POST回傳:{JSON.stringify(msgitems)}</span>
+      {/* <span>BLOGS POST回傳:{JSON.stringify(msgitems)}</span> */}
       <hr />
       <div>fakeData post回傳:{JSON.stringify(fakeDates)}</div>
     </>
