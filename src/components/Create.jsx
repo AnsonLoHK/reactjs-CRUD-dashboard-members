@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import { apiArticleMsg, apiArticleItem, apiFakeData } from "../api";
-
+import { Link } from "react-router-dom";
 const Create = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -28,9 +28,7 @@ const Create = () => {
     }
   }
 
-  console.log("fakeDates", fakeDates);
-
-  //多個api集中管理 用途 blogs
+  //多個api集中管理 用途 blogs (五星)
   async function apiTest() {
     let articleMsg = {
       title: "配飲料",
@@ -77,10 +75,13 @@ const Create = () => {
         <Button onClick={postData} type="submit">
           Submit
         </Button>
+        <Link to="/read">
+          <Button type="submit">前往列表</Button>
+        </Link>
 
-        <Button onClick={apiTest} type="submit">
+        {/* <Button onClick={apiTest} type="submit">
           apiTest
-        </Button>
+        </Button> */}
       </Form>
       {/* <div>
         BLOGS GET:

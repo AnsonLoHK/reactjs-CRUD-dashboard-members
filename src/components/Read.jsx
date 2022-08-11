@@ -18,8 +18,6 @@ const Read = () => {
     getSystemMembers();
   }, []);
 
-  console.log("systemMembers", systemMembers);
-
   const setData = (data) => {
     let { id, name, password, role } = data;
     console.log("!", { id, name, password, role });
