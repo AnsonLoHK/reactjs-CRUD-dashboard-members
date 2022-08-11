@@ -30,11 +30,10 @@ articleRequest.interceptors.request.use(
 export const apiArticleItem = () => articleRequest.get("/blogs");
 export const apiArticleMsg = (data) => articleRequest.post("/blogs", data);
 
-// POST
+// POST 新增使用者名單
 export const apiFakeData = (data) => customAxios.post("/fakeData", data);
-// GET
+// GET 獲得使用者清單
 export const getApiFakeData = () => customAxios.get("/fakeData");
-
-// PUT
+// PUT 修改當前使用者資料
 
 // DELETE
