@@ -16,7 +16,8 @@ You may also see any lint errors in the console.
 
 ### `Mock api`
 
-1.[Mockapi 網址](https://62f1f364b1098f150807dadd.mockapi.io/blogs) 測試用
+1.[Mockapi 網址](https://mockapi.io/projects/62f1f364b1098f150807dade) 測試用
+post 部分主要是對應 fakeData
 
 2.已經將 blogs 的 get 跟 post 都整合在 api.js 裡面
 

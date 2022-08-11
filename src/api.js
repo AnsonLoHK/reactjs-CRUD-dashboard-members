@@ -30,5 +30,10 @@ articleRequest.interceptors.request.use(
 export const apiArticleItem = () => articleRequest.get("/blogs");
 export const apiArticleMsg = (data) => articleRequest.post("/blogs", data);
 
-//
+// POST
 export const apiFakeData = (data) => customAxios.post("/fakeData", data);
+// GET
+
+// PUT
+
+// DELETE
