@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import { apiArticleMsg, apiArticleItem, apiFakeData } from "../api";
 import { Link } from "react-router-dom";
+
 const Create = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
 
-  const [items, setItems] = useState([]);
-  const [msgitems, setMsgitems] = useState({});
+  // const [items, setItems] = useState([]);
+  // const [msgitems, setMsgitems] = useState({});
   const [fakeDates, setFakeDates] = useState({});
 
   // 用途 fakeData
@@ -29,23 +30,23 @@ const Create = () => {
   }
 
   //多個api集中管理 用途 blogs (五星)
-  async function apiTest() {
-    let articleMsg = {
-      title: "配飲料",
-      content: "測試",
-    };
+  // async function apiTest() {
+  //   let articleMsg = {
+  //     title: "配飲料",
+  //     content: "測試",
+  //   };
 
-    try {
-      // post
-      const { data: msg } = await apiArticleMsg(articleMsg);
-      setMsgitems(msg);
-      // get
-      const { data: items } = await apiArticleItem();
-      setItems(items);
-    } catch (err) {
-      console.error(err);
-    }
-  }
+  //   try {
+  //     // post
+  //     const { data: msg } = await apiArticleMsg(articleMsg);
+  //     setMsgitems(msg);
+  //     // get
+  //     const { data: items } = await apiArticleItem();
+  //     setItems(items);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // }
 
   return (
     <>
