@@ -8,12 +8,6 @@ const Read = () => {
   const [systemMembers, setSystemMembers] = useState([]);
 
   useEffect(() => {
-    // axios
-    //   .get(`https://62f1f364b1098f150807dadd.mockapi.io/fakeData`)
-    //   .then((response) => {
-    //     setAPIData(response.data);
-    //   });
-
     async function getSystemMembers() {
       try {
         // GET
@@ -21,19 +15,17 @@ const Read = () => {
         setSystemMembers(items);
       } catch (err) {}
     }
-
     getSystemMembers();
   }, []);
 
   console.log("systemMembers", systemMembers);
 
   const setData = (data) => {
-    let { id, firstName, lastName, checkbox } = data;
-    console.log("!", { id, firstName, lastName, checkbox });
-    localStorage.setItem("ID", id);
-    localStorage.setItem("First Name", firstName);
-    localStorage.setItem("Last Name", lastName);
-    localStorage.setItem("Checkbox Value", checkbox);
+    let { id, name, password, role } = data;
+    console.log("!", { id, name, password, role });
+    localStorage.setItem("name", id);
+    localStorage.setItem("password", name);
+    localStorage.setItem("role", password);
   };
 
   return (
