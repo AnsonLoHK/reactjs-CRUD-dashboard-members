@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "semantic-ui-react";
 import { getApiFakeData } from "../api";
-
 import { Link } from "react-router-dom";
 
 const Read = () => {
@@ -20,10 +19,10 @@ const Read = () => {
 
   const setData = (data) => {
     let { id, name, password, role } = data;
-    console.log("!", { id, name, password, role });
-    localStorage.setItem("name", id);
-    localStorage.setItem("password", name);
-    localStorage.setItem("role", password);
+    localStorage.setItem("ID", id);
+    localStorage.setItem("name", name);
+    localStorage.setItem("password", password);
+    localStorage.setItem("role", role);
   };
 
   return (
@@ -48,7 +47,7 @@ const Read = () => {
                 <Table.Cell>{data.role}</Table.Cell>
                 <Link to="/update">
                   <Table.Cell>
-                    <Button onClick={() => setData(data)}>Update</Button>
+                    <Button onClick={() => setData(data)}>編輯</Button>
                   </Table.Cell>
                 </Link>
               </Table.Row>

@@ -35,5 +35,6 @@ export const apiFakeData = (data) => customAxios.post("/fakeData", data);
 // GET 獲得使用者清單
 export const getApiFakeData = () => customAxios.get("/fakeData");
 // PUT 修改當前使用者資料
+export const putApiFakeData = (id) => customAxios.put(`/fakeData/${id}`);
 
 // DELETE
